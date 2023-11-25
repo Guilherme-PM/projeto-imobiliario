@@ -1,0 +1,20 @@
+<!-- <p-card [style]="{ 'height': '7vh' }">
+  <div class="layout-topbar">
+    <a class="layout-topbar-logo" routerLink="">
+        <img src="assets/layout/images/{{layoutService.config.colorScheme === 'light' ? 'logo-dark' : 'logo-white'}}.svg" alt="logo">
+        <span>Projeto Imobiliário</span>
+    </a>
+    <p-button (click)="sidebarVisible = true" icon="pi pi-bars" [style]="{'background-color': '#2A323D', 'color': '#e3e4e6', 'border': '#e3e4e6' }"></p-button>
+  </div>
+</p-card> -->
+
+<p-toolbar [style]="{ 'margin-bottom': '10px' }">
+  <p-button (click)="sidebarVisibleToogle()" icon="pi pi-bars" [style]="{'background-color': '#2A323D', 'color': '#e3e4e6', 'border': '#e3e4e6' }"></p-button>
+</p-toolbar>
+
+<p-sidebar [style]="{ 'margin-top': '4.7%' }" (onHide)="onHide()" (onShow)="onShow()" [(visible)]="sidebarVisible" [modal]="false">
+  <div class="d-flex align-items-center justify-content-center" style="height: 100%;">
+    <p-panelMenu [model]="items" [style]="{'width': '100%' }" ></p-panelMenu>
+  </div>
+</p-sidebar>
+

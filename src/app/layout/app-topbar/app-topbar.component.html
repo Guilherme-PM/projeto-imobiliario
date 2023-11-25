@@ -1,0 +1,12 @@
+<p-card [style]="{ 'height': '10vh' }">
+  <div class="layout-topbar">
+    <a class="layout-topbar-logo" routerLink="">
+        <!-- <img src="assets/layout/images/{{layoutService.config.colorScheme === 'light' ? 'logo-dark' : 'logo-white'}}.svg" alt="logo"> -->
+        <span>Projeto Imobiliário</span>
+    </a>
+
+    <button #menubutton class="p-link layout-menu-button layout-topbar-button" (click)="toggleTopbar()">
+        <i class="pi pi-bars"></i>
+    </button>
+  </div>
+</p-card>
