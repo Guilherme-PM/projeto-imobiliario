@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PmTableComponent } from './pm-table.component';
+import { PmInputComponent } from './pm-input.component';
 
-describe('PmTableComponent', () => {
-  let component: PmTableComponent;
-  let fixture: ComponentFixture<PmTableComponent>;
+describe('PmInputComponent', () => {
+  let component: PmInputComponent;
+  let fixture: ComponentFixture<PmInputComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PmTableComponent]
+      declarations: [PmInputComponent]
     });
-    fixture = TestBed.createComponent(PmTableComponent);
+    fixture = TestBed.createComponent(PmInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

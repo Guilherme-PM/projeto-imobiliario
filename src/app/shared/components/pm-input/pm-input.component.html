@@ -1,0 +1,9 @@
+<div *ngIf="pmInputConfig.visible">
+    <div class="p-inputgroup" [ngStyle]="{ 'width': pmInputConfig.width }">
+        <span class="p-float-label">
+            <span #icon class="p-inputgroup-addon"><i class="{{ pmInputConfig.icon }}"></i></span>
+            <input style="border-radius: 0px 4px 4px 0px;" pInputText class="ui-inputtext ui-widget">
+            <label style="margin-left: 35px">{{ pmInputConfig.placeholder }}</label>
+        </span>
+    </div>
+</div>

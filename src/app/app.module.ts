@@ -4,8 +4,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// MÓDULOS
+import { CoreModule } from './core/core.module';
 import { AdministrationModule } from './modules/administration/administration.module';
 
+// COMPONENTES
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { CardModule } from 'primeng/card';
 import { SplitterModule } from 'primeng/splitter';
@@ -17,6 +20,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
 
+// TELAS
 import { HomeComponent } from './pages/home/home.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { MenuBarComponent } from './layout/menu-bar/menu-bar.component';
@@ -25,8 +29,8 @@ import { AppFooterComponent } from './layout/app-footer/app-footer.component';
 import { AppLayoutComponent } from './layout/app-layout/app-layout.component';
 import { AppTopbarComponent } from './layout/app-topbar/app-topbar.component';
 import { AppSidebarComponent } from './layout/app-sidebar/app-sidebar.component';
-import { PmInputTextComponent } from './shared/components/pm-input-text/pm-input-text.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -39,9 +43,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppLayoutComponent,
     AppTopbarComponent,
     AppSidebarComponent,
-    PmInputTextComponent
   ],
   imports: [
+    CoreModule,
+
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -55,7 +62,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     DropdownModule,
     TableModule,
     ToolbarModule,
-    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

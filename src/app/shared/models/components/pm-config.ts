@@ -2,34 +2,46 @@ import { FormControl, FormGroup } from "@angular/forms";
 
 export class PmConfig {
 
-  name: string;
+  name?: string;
 
-  // Define se o campo é obrigatória ou não
+  // Define o placeholder do componente utilizado
+  placeholder?: string;
+
+  // Define se o campo é obrigatório ou não
   mandatory?: boolean;
 
   // Define se o campo é apenas para leitura ou não
-  readOnly: boolean;
+  readOnly?: boolean;
+
+  // Define se o campo será exibido ou não
+  visible?: boolean;
 
   // FormControl associado a este campo
   formControl?: FormControl;
-  form: FormGroup;
+  form?: FormGroup;
 
   constructor({
     name,
+    placeholder,
     mandatory,
-    readOnly
+    readOnly,
+    visible
 
   } : {
 
-    name: string;
+    name?: string;
+    placeholder?: string;
     mandatory?: boolean;
-    readOnly: boolean;
+    readOnly?: boolean;
+    visible?: boolean;
 
   }) {
 
     this.name = name;
+    this.placeholder = placeholder ?? 'Digite';
     this.mandatory = mandatory;
     this.readOnly = readOnly ?? false;
+    this.visible = visible ?? true;
     this.form = new FormGroup({});
   }
 

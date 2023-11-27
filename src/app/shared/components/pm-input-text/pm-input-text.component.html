@@ -1,7 +1,0 @@
-<div *ngIf="inputText" [formGroup]="inputText.form">
-  <div class="p-inputgroup">
-    <span #icon class="p-inputgroup-addon"><i class="{{inputText.icon}}" style="line-height: 1.25;"></i></span>
-
-    <input formControlName="{{inputText.name}}" pInputText type="text" autocomplete="on" class="ui-inputtext ui-widget" [readOnly]="inputText.readOnly">
-  </div>
-</div>

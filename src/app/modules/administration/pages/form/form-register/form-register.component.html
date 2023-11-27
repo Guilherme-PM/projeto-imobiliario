@@ -1,14 +1,7 @@
 <div class="card">
   <h5 class="card-name">Formulário</h5>
   <p-steps [style]="{ 'margin-bottom': '30px' }" [model]="items" [(activeIndex)]="selectedStep" [readonly]="false" styleClass="custom-steps"></p-steps>
-
-<!--   <span class="p-float-label">
-    <input pInputText id="username" style="width: 300px;"/>
-    <label htmlFor="username">Nome do formulário</label>
-  </span> -->
-
+  <!-- <app-pm-input></app-pm-input> -->
+  <app-pm-input [pmInputConfig]="inputConfig"></app-pm-input>
 </div>
-
-<router-outlet></router-outlet>
-
 
