@@ -20,12 +20,15 @@ export class PmConfig {
   formControl?: FormControl;
   form?: FormGroup;
 
+  steps?: number;
+
   constructor({
     name,
     placeholder,
     mandatory,
     readOnly,
-    visible
+    visible,
+    steps
 
   } : {
 
@@ -34,7 +37,7 @@ export class PmConfig {
     mandatory?: boolean;
     readOnly?: boolean;
     visible?: boolean;
-
+    steps?: number;
   }) {
 
     this.name = name;
@@ -43,6 +46,7 @@ export class PmConfig {
     this.readOnly = readOnly ?? false;
     this.visible = visible ?? true;
     this.form = new FormGroup({});
+    this.steps = steps ?? undefined;
   }
 
   updateValue?(value: any){

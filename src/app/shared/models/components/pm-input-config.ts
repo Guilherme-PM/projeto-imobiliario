@@ -3,7 +3,7 @@ import { PmConfig } from './pm-config';
 export class PmInputConfig extends PmConfig {
 
   // Caso o campo seja de senha
-  passwordField?: boolean = false;
+  passwordField?: boolean;
 
   // Caso queira adicionar um icon no início do campo
   icon?: string;
@@ -11,10 +11,14 @@ export class PmInputConfig extends PmConfig {
   // Define o tamanho do componente
   width?: string;
 
+  // Define se o campo é um textArea ou não
+  textArea?: boolean;
+
   constructor({
     passwordField,
     icon,
     width,
+    textArea,
 
     // PmConfig
 
@@ -27,9 +31,10 @@ export class PmInputConfig extends PmConfig {
     passwordField?: boolean;
     icon?: string;
     width?: string;
+    textArea?: boolean;
     // PmConfig
 
-    name?: string,
+    name?: string;
     placeholder?: string;
     mandatory?: boolean;
     readOnly: boolean;
@@ -44,5 +49,6 @@ export class PmInputConfig extends PmConfig {
     this.passwordField = passwordField ?? false;
     this.icon = icon ?? '';
     this.width = width ?? '';
+    this.textArea = textArea ?? false;
   }
 }
