@@ -17,6 +17,7 @@ export class FormRegisterComponent {
     readOnly: false,
     width: '250px',
     placeholder: 'Nome do formulário',
+    name: 'formName'
   };
   
   ngOnInit() {

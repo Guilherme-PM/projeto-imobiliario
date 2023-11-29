@@ -17,7 +17,7 @@ export class PmConfig {
   visible?: boolean;
 
   // FormControl associado a este campo
-  formControl?: FormControl;
+  formControl?: FormControl | FormGroup; 
   form?: FormGroup;
 
   steps?: number;
@@ -45,7 +45,6 @@ export class PmConfig {
     this.mandatory = mandatory;
     this.readOnly = readOnly ?? false;
     this.visible = visible ?? true;
-    this.form = new FormGroup({});
     this.steps = steps ?? undefined;
   }
 

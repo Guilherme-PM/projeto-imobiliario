@@ -1,13 +1,13 @@
-<div *ngIf="pmInputConfig.visible">
+<div *ngIf="pmInputConfig.visible" [formGroup]="pmInputConfig.form!">
     <div class="p-inputgroup" [ngStyle]="{ 'width': pmInputConfig.width }">
         <span class="p-float-label">
             <span #icon class="p-inputgroup-addon"><i class="{{ pmInputConfig.icon }}"></i></span>
 
-            <input *ngIf="!pmInputConfig.passwordField" style="border-radius: 0px 4px 4px 0px;" pInputText class="ui-inputtext ui-widget" [readOnly]="pmInputConfig.readOnly">
+            <input formControlName="{{pmInputConfig.name}}" *ngIf="!pmInputConfig.passwordField && !pmInputConfig.textArea" style="border-radius: 0px 4px 4px 0px;" pInputText class="ui-inputtext ui-widget" [readOnly]="pmInputConfig.readOnly">
 
-            <input *ngIf="pmInputConfig.passwordField" type="password" pPassword [readOnly]="pmInputConfig.readOnly">
+            <input formControlName="{{pmInputConfig.name}}" *ngIf="pmInputConfig.passwordField" type="password" pPassword [readOnly]="pmInputConfig.readOnly">
 
-            <textarea pInputTextArea *ngIf="!pmInputConfig.passwordField && pmInputConfig.textArea" [rows]="5"></textarea>
+            <textarea formControlName="{{pmInputConfig.name}}" pInputTextArea *ngIf="!pmInputConfig.passwordField && pmInputConfig.textArea" [rows]="5"></textarea>
 
             <label style="margin-left: 35px">{{ pmInputConfig.placeholder }}</label>
         </span>
