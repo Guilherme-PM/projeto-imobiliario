@@ -12,13 +12,7 @@ export class FormRegisterComponent {
 
   selectedStep: number = 0;
 
-  inputConfig: PmInputConfig = {
-    icon: "pi pi-pencil",
-    readOnly: false,
-    width: '250px',
-    placeholder: 'Nome do formulário',
-    name: 'formName'
-  };
+  inputConfig: PmInputConfig = { icon: "pi pi-pencil", width: '250px', placeholder: 'Nome do formulário', mandatory: true, name: 'formName' };
   
   ngOnInit() {
     console.log("InputConfig: ", this.inputConfig);
@@ -44,6 +38,11 @@ export class FormRegisterComponent {
     ];
 
 
+  }
+
+  salvar(){
+    if(!this.inputConfig.form?.valid)
+      return;
   }
 
   dadosPrincipais(){

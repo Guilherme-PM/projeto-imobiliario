@@ -13,24 +13,17 @@ export class PmInputComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.loadValidators();
-
     if(!this.pmInputConfig.form){
       const controlName = this.pmInputConfig.name || 'id';
 
       this.pmInputConfig.form = new FormGroup({
         [controlName]: new FormControl(),
       });
+
+      if (this.pmInputConfig.mandatory) {
+        this.pmInputConfig.form.get(controlName)?.setValidators([Validators.required]);
+        this.pmInputConfig.form.get(controlName)?.updateValueAndValidity();
+      }
     }
-  }
-
-  loadValidators(){
-    let validators = [];
-
-    if(this.pmInputConfig.mandatory) 
-      validators.push(Validators.required);
-
-    this.pmInputConfig.formControl?.setValidators(validators);
-    this.pmInputConfig.formControl?.updateValueAndValidity();
   }
 }
