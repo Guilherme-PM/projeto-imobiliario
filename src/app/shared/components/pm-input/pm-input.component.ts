@@ -10,8 +10,6 @@ import { FormControl, Validators, FormGroup } from "@angular/forms";
 export class PmInputComponent implements OnInit {
   @Input() pmInputConfig!: PmInputConfig;
 
-  constructor() { }
-
   ngOnInit(): void {
     if(!this.pmInputConfig.form){
       const controlName = this.pmInputConfig.name || 'id';

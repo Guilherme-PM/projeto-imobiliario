@@ -1,4 +1,4 @@
-<div *ngIf="pmInputConfig.visible" [formGroup]="pmInputConfig.form!">
+<div *ngIf="pmInputConfig.visible" [formGroup]="pmInputConfig.form!" style="margin-top: 20px; margin-bottom: 20px; margin-right: 20px;">
     <div class="p-inputgroup" [ngStyle]="{ 'width': pmInputConfig.width }">
         <span class="p-float-label">
             <span #icon class="p-inputgroup-addon"><i class="{{ pmInputConfig.icon }}"></i></span>
@@ -9,7 +9,9 @@
 
             <textarea formControlName="{{pmInputConfig.name}}" pInputTextArea *ngIf="!pmInputConfig.passwordField && pmInputConfig.textArea" [rows]="5"></textarea>
 
-            <label style="margin-left: 35px">{{ pmInputConfig.placeholder }}</label>
+            <label style="margin-left: 45px">{{ pmInputConfig.placeholder }}</label>
+            
         </span>
     </div>
+    <small *ngIf="this.pmInputConfig.form?.invalid" style="color: #ff3d40">* Campo obrigatório</small>
 </div>

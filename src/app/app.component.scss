@@ -1,4 +1,14 @@
-.sideBarOpen {
-  margin-left: 17%;
-  transition: margin-left 0.3s;
+@media screen and (max-width: 1400px) {
+  .sideBarOpen {
+    margin-left: 23.5vw;
+    transition: margin-left 0.3s;
+  }
 }
+
+@media screen and (min-width: 1500px){
+  .sideBarOpen {
+    margin-left: 16.7vw;
+    transition: margin-left 0.3s;
+  }
+}
+

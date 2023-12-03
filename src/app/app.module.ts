@@ -19,6 +19,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
+import { CheckboxModule } from 'primeng/checkbox';
+import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
 
 // TELAS
 import { HomeComponent } from './pages/home/home.component';
@@ -31,6 +33,9 @@ import { AppTopbarComponent } from './layout/app-topbar/app-topbar.component';
 import { AppSidebarComponent } from './layout/app-sidebar/app-sidebar.component';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { PmDropdownComponent } from './shared/components/pm-dropdown/pm-dropdown.component';
+import { PmCheckboxComponent } from './shared/components/pm-checkbox/pm-checkbox.component';
+import { PmInputComponent } from './shared/components/pm-input/pm-input.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +48,9 @@ import { CommonModule } from '@angular/common';
     AppLayoutComponent,
     AppTopbarComponent,
     AppSidebarComponent,
+    PmInputComponent,
+    PmDropdownComponent,
+    PmCheckboxComponent,
   ],
   imports: [
     CoreModule,
@@ -62,7 +70,14 @@ import { CommonModule } from '@angular/common';
     DropdownModule,
     TableModule,
     ToolbarModule,
-    CommonModule
+    CommonModule,
+    CheckboxModule,
+    TriStateCheckboxModule
+  ],
+  exports: [
+    PmInputComponent,
+    PmDropdownComponent, 
+    PmCheckboxComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

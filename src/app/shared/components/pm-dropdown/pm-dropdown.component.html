@@ -1,0 +1,11 @@
+<div *ngIf="!pmDropdownConfig.visible" [formGroup]="pmDropdownConfig.form!"  style="margin-top: 20px; margin-bottom: 20px; margin-right: 20px;">
+    <div class="p-inputgroup">
+        <span class="p-float-label">
+            <span #icon class="p-inputgroup-addon"><i class="{{ pmDropdownConfig.icon }}"></i></span>
+
+            <p-dropdown formControlName="{{ pmDropdownConfig.name }}" [style]="{ 'width': pmDropdownConfig.width, 'border-radius': '0px 4px 4px 0px' }" styleClass="width: 550px !important" [options]="pmDropdownConfig.options" [filter]="pmDropdownConfig.displayFilter"
+            [readonly]="pmDropdownConfig.readOnly"></p-dropdown>
+        </span>
+    </div>
+    <small *ngIf="this.pmDropdownConfig.form?.invalid" style="color: #ff3d40">* Campo obrigatório</small>
+</div>
