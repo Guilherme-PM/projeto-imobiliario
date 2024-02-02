@@ -7,12 +7,14 @@ import { FormRegisterPass1Component } from './pages/form/form-register-pass1/for
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { AppModule } from 'src/app/app.module';
 import { InputTextModule } from 'primeng/inputtext';
+import { ModulesComponent } from './pages/modules/modules.component';
 
 @NgModule({
   declarations: [
     FormRegisterComponent,
     FormListComponent,
-    FormRegisterPass1Component
+    FormRegisterPass1Component,
+    ModulesComponent
   ],
   imports: [
     AppModule,

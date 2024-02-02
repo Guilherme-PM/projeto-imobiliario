@@ -1,0 +1,166 @@
+/* .p-column-filter-overlay-menu {
+  margin-top: -6% !important;
+}
+ */
+
+ td {
+    font-size: 14px;
+  }
+  
+  tr {
+    font-size: 14px;
+  }
+  
+  .sublinhado:hover {
+    text-decoration: underline;
+  }
+  
+  .botaoAtivo {
+    background: white;
+    border: 2px solid #fd7e14;
+    min-width: 36px;
+    color: #fd7e14;
+    border-radius: 3px;
+    padding: 0%;
+    height: 36px;
+  }
+  
+  .botaoAtivo:focus {
+    background: none;
+  }
+  
+  .botaoDesativo
+  {
+    background: white;
+    border: 2px solid #9fa5aa;
+    min-width: 36px;
+    color: #9fa5aa;
+    border-radius: 3px;
+    padding: 0px;
+    height: 36px;
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  
+  .booleanTrue {
+    color: green;
+  }
+  
+  .booleanFalse {
+    color: red;
+  }
+  
+  .campoInput  {
+    font-size: 1rem;
+    color: #495057;
+    background: #ffffff;
+    // padding: 0.70rem 0.70rem;
+    border: 1px solid #ced4da;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 6px;
+  }
+  
+  .naoEditavel {
+    background-color: #e3e2e2c7;
+    cursor: not-allowed;
+  }
+  
+  .botaoEditar {
+    background-color: transparent;
+    color: #fd7e14;
+    border-color: transparent;
+  }
+  
+  .botaoEditar:hover {
+    background-color: #fd7d1436;
+    height: 32px;
+    border-radius: 32px;
+  }
+  
+  .botaoConfirmar {
+    background-color: transparent;
+    color: #22C55E;
+    margin-right: 15px;
+    border-color: transparent;
+  }
+  
+  .botaoConfirmar:hover {
+    background-color: #22c55e31;
+    height: 32px;
+    border-radius: 50px;
+  }
+  
+  .botaoCancelar {
+    background-color: transparent;
+    color: #EF4444;
+    border-color: transparent;
+  }
+  
+  .botaoCancelar:hover {
+    background-color: #ef44443f;
+    height: 32px;
+    border-radius: 50px;
+  }
+  
+  .botoes-acoes {
+    justify-content: center;
+  }
+  .link-acoes {
+    padding-top: 3px;
+    font-size: 17px;
+    text-decoration-line: none;
+  }
+  :host ::ng-deep {
+  
+    .p-speeddial {
+      position: relative;
+    }
+  
+    .botoes-acoes-speed-dial  button {
+      justify-content: center !important;
+      background: white !important;
+      border: 2px solid var(--cor-laranja) !important;
+      width: 36px !important;
+      height: 36px !important;
+      color: var(--cor-laranja) !important;
+      border-radius: 3px !important;
+      padding: 0 !important;
+    }
+  
+    .p-speeddial-list {
+      position: absolute;
+      margin-right: 30px;
+      margin-top: 10px;
+    }
+  
+    .p-speeddial-action {
+      background: var(--cor-laranja);
+    }
+  
+    #desativado-speed-dial {
+      background: #9fa5aa !important;
+      pointer-events: none !important;
+    }
+  
+    li:has(#desativado-speed-dial) {
+      cursor: default !important;
+    }
+  }
+  
+  @media screen and (max-width: 700px){
+    .table-header {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .filtroGlobal {
+      position: relative !important;
+    }
+  
+    .botaoLimpar {
+      margin: 10px;
+    }
+  }

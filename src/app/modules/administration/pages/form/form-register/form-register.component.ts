@@ -4,6 +4,7 @@ import { PmInputConfig } from 'src/app/shared/models/components/pm-input-config'
 import { FormRegisterService, RegisterComponent } from '../../../services/form-register/form-register.service';
 import { PmDropdownConfig } from 'src/app/shared/models/components/pm-dropdown-config';
 import { PmCheckboxConfig } from 'src/app/shared/models/components/pm-checkbox';
+import { FormModel } from 'src/app/models/formModel';
 
 @RegisterComponent()
 @Component({
@@ -17,13 +18,11 @@ export class FormRegisterComponent implements OnInit {
   items: MenuItem[] | undefined;
   selectedStep: number = 0;
 
-  formNames!: string[];
-
-  inputConfig: PmInputConfig = { icon: "pi pi-pencil", width: '308px', placeholder: 'Nome do formulário', mandatory: true, name: 'formName' };
+  inputConfig: PmInputConfig = { icon: "pi pi-pencil", width: '308px', placeholder: 'Nome da página', mandatory: true, name: 'formName' };
 
   dropdownConfig!: PmDropdownConfig;
 
-  checkboxConfig: PmCheckboxConfig = { label: 'Teste', binary: true, name: 'campoCheckbox'} ;
+  checkboxConfig: PmCheckboxConfig = { label: 'Teste', binary: true, name: 'campoCheckbox', mandatory: true } ;
   
   constructor(private formRegisterService: FormRegisterService) {}
   
@@ -31,8 +30,14 @@ export class FormRegisterComponent implements OnInit {
     this.inputConfig.visible = true;
     
     var forms = this.formRegisterService.getComponents();
-    this.formNames = forms.map(x => x.name);
-    this.dropdownConfig = {icon: "pi pi-pencil", width: '260px', displayFilter: true, options: this.formNames, name: 'componentName', mandatory: true };
+    
+    const formModels: FormModel[] = forms.map(form => {
+      const formModel = new FormModel();
+      formModel.name = form.name;
+      return formModel;
+    });
+
+    this.dropdownConfig = {label: 'name', value: 'id', icon: "pi pi-pencil", showClear: true, placeholder: 'Selecione Algo', width: '260px', displayFilter: true, options: formModels, name: 'componentName', mandatory: true };
     
     this.items = [
       {

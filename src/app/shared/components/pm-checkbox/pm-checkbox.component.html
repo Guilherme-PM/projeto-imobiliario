@@ -1,9 +1,9 @@
-<div *ngIf="!pmCheckboxConfig.visible" [formGroup]="pmCheckboxConfig.form!"  style="margin-top: 20px; margin-bottom: 20px; margin-right: 20px;">
+<div *ngIf="!pmCheckboxConfig.visible" [formGroup]="pmCheckboxConfig.form!" style="margin-top: 20px; margin-bottom: 40px; margin-right: 20px;">
     <div class="p-inputgroup">
-        <span class="p-float-label">
+        <span>
             <p-checkbox styleClass="left: 0px; position: absolute;" formControlName="{{ pmCheckboxConfig.name }}" *ngIf="!pmCheckboxConfig.triState && pmCheckboxConfig.binary" [binary]="pmCheckboxConfig.binary" [label]="pmCheckboxConfig.label" [readonly]="pmCheckboxConfig.readOnly"></p-checkbox>
             <p-triStateCheckbox formControlName="{{ pmCheckboxConfig.name }}" *ngIf="pmCheckboxConfig.triState && !pmCheckboxConfig.binary" [label]="pmCheckboxConfig.label" [readonly]="pmCheckboxConfig.readOnly"></p-triStateCheckbox>
         </span>
     </div>
-    <small *ngIf="this.pmCheckboxConfig.form?.invalid" style="margin-left: 125px; color: #ff3d40">* Campo obrigatório</small>
+    <small *ngIf="this.pmCheckboxConfig.form?.invalid" style="color: #ff3d40">* Campo obrigatório</small>
 </div>

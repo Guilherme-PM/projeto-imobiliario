@@ -45,7 +45,7 @@ export class MenuBarComponent implements OnInit{
           {
             label: 'Módulos',
             icon: 'pi pi-briefcase',
-            routerLink: ''
+            routerLink: '/modulos'
           },
           {
             label: 'Formulários',

@@ -8,9 +8,19 @@ export class PmDropdownConfig extends PmConfig{
     // Propriedade que armazena as opções do dropdown
     options?: any;
 
+    // Propriedade para liberar o botão de limpar
+    showClear?: boolean;
+
+    label?: string;
+
+    value?: string;
+
     constructor({
         displayFilter,
         options,
+        showClear,
+        label,
+        value,
 
         name,
         placeholder,
@@ -20,6 +30,9 @@ export class PmDropdownConfig extends PmConfig{
     } : {
         displayFilter?: boolean;
         options?: any;
+        showClear?: boolean;
+        label?: string;
+        value?: string;
 
         name?: string,
         placeholder?: string,
@@ -37,5 +50,8 @@ export class PmDropdownConfig extends PmConfig{
 
         this.displayFilter || true;
         this.options || null;
+        this.showClear || true;
+        this.label || null;
+        this.value || null;
     }
 }
