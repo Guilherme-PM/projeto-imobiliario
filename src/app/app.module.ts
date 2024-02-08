@@ -21,6 +21,10 @@ import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
 import { CheckboxModule } from 'primeng/checkbox';
 import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
+import { TagModule } from 'primeng/tag';
+import { RatingModule } from 'primeng/rating';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { ToastModule } from 'primeng/toast';
 
 // TELAS
 import { HomeComponent } from './pages/home/home.component';
@@ -76,7 +80,11 @@ import { PmTableComponent } from './shared/components/pm-table/pm-table.componen
     ToolbarModule,
     CommonModule,
     CheckboxModule,
-    TriStateCheckboxModule
+    TriStateCheckboxModule,
+    TagModule,
+    RatingModule,
+    MultiSelectModule,
+    ToastModule
   ],
   exports: [
     PmInputComponent,

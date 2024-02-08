@@ -31,6 +31,8 @@ export class PmTableConfig extends PmConfig {
   modoSelecao: string;                                                               // OPÇÕES: single || multiple
 
   // Propriedade que habilita os botões de funções
+  habilitarBotoes: any[];
+
   // Propriedade para finalizar o carregamento da tabela
   loading: boolean;
 
@@ -140,11 +142,12 @@ export class PmTableConfig extends PmConfig {
     this.checkbox = checkbox !== undefined ? checkbox : false;
     this.colunas = colunas !== undefined ? colunas : [];
     this.filtroGlobal = filtroGlobal !== undefined ? filtroGlobal : true;
-    this.habilitarColunasSelecionadas = habilitarColunasSelecionadas !== undefined ? habilitarColunasSelecionadas : false;
+    this.habilitarColunasSelecionadas = habilitarColunasSelecionadas !== undefined ? habilitarColunasSelecionadas : true;
     this.dados = dados != undefined ? dados : [];
-    this.filtroCompacto = filtroCompacto != undefined ? filtroCompacto : false;
+    this.filtroCompacto = filtroCompacto != undefined ? filtroCompacto : true;
     this.paginacao = paginacao != undefined ? paginacao : true;
     this.modoSelecao = modoSelecao != undefined ? modoSelecao : 'none';
+    this.habilitarBotoes = habilitarBotoes != undefined ? habilitarBotoes : [];
     this.loading = loading != undefined ? loading : true;
     this.exportarExcel = exportarExcel != undefined ? exportarExcel : false;
     this.coresBackground = coresBackground != undefined ? coresBackground : false;

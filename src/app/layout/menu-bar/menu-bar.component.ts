@@ -1,21 +1,25 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { SidebarModule } from 'primeng/sidebar';
+import { MenusService } from 'src/app/services/menus.service';
 
 @Component({
   selector: 'app-menu-bar',
   templateUrl: './menu-bar.component.html',
   styleUrls: ['./menu-bar.component.scss']
 })
-export class MenuBarComponent implements OnInit{
+export class MenuBarComponent implements OnInit {
   @Output() toggleSidebar = new EventEmitter<boolean>();
   @Input() sidebarVisible: boolean = false;
 
   @ViewChild('sideBar') sideBar!: SidebarModule;
 
+  menus: MenuItem[] = [];
   items: MenuItem[] = [];
 
-  constructor() {}
+  constructor(
+    private menusSvc: MenusService
+  ) {}
 
   sidebarVisibleToogle(){
     this.sidebarVisible = true;
@@ -32,6 +36,8 @@ export class MenuBarComponent implements OnInit{
   }
 
   ngOnInit() {
+    this.getAllMenus();
+
     this.items = [
       {
         label: 'Página Inicial',
@@ -45,7 +51,7 @@ export class MenuBarComponent implements OnInit{
           {
             label: 'Módulos',
             icon: 'pi pi-briefcase',
-            routerLink: '/modulos'
+            routerLink: 'administracao/modulos'
           },
           {
             label: 'Formulários',
@@ -76,6 +82,13 @@ export class MenuBarComponent implements OnInit{
         ]
       }
     ];
+  }
+
+  getAllMenus(){
+    this.menusSvc.getAllMenus()
+    .pipe().subscribe((data: any) => {
+      this.menus = data;
+    })
   }
 }
 

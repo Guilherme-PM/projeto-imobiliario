@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ModulesService } from '../../services/modules/modules.service';
+import { ModulesService } from '../../../services/modules/modules.service';
 import { PmTableConfig } from 'src/app/shared/models/components/pm-table-config';
 import { PmInputConfig } from 'src/app/shared/models/components/pm-input-config';
-import { FormRegisterService, RegisterComponent } from '../../services/form-register/form-register.service';
+import { FormRegisterService, RegisterComponent } from '../../../services/form-register/form-register.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @RegisterComponent()
 @Component({
   selector: 'app-modules',
-  templateUrl: './modules.component.html',
-  styleUrls: ['./modules.component.scss'],
+  templateUrl: './modules-view.component.html',
+  styleUrls: ['./modules-view.component.scss'],
   providers: [FormRegisterService]
 })
 export class ModulesComponent implements OnInit {
@@ -16,7 +17,9 @@ export class ModulesComponent implements OnInit {
   inputConfig: PmInputConfig = { icon: "pi pi-pencil", width: '308px', placeholder: 'Nome da página', mandatory: true, name: 'formName' };
   modulos: any;
 
-  constructor( private modulesSvc: ModulesService ) { }
+  constructor( 
+    private modulesSvc: ModulesService,
+    private router: Router ) { }
 
   ngOnInit(): void {
     this.montarTabela();
@@ -30,11 +33,20 @@ export class ModulesComponent implements OnInit {
 
   montarTabela(): void {
     this.tabela = new PmTableConfig({
+      exportarExcel: true,
+      checkbox: true,
       colunas: [
         { id: 'idModule', label: 'Id' },
         { id: 'description', label: 'Descrição' }
       ],
+      habilitarBotoes: [
+        { icon: 'pi pi-pencil', title: 'Editar Módulos', acao: this.editarModulo }
+      ],
       dados: this.modulos
     });
+  }
+
+  editarModulo = (event: any) => {
+    this.router.navigate(['administracao/modulos/registro']);
   }
 }

@@ -7,14 +7,17 @@ import { FormRegisterPass1Component } from './pages/form/form-register-pass1/for
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { AppModule } from 'src/app/app.module';
 import { InputTextModule } from 'primeng/inputtext';
-import { ModulesComponent } from './pages/modules/modules.component';
+import { TableModule } from 'primeng/table';
+import { ModulesComponent } from './pages/modules/modules-view/modules-view.component';
+import { ModulesRegisterComponent } from './pages/modules/modules-register/modules-register/modules-register.component';
 
 @NgModule({
   declarations: [
     FormRegisterComponent,
     FormListComponent,
     FormRegisterPass1Component,
-    ModulesComponent
+    ModulesComponent,
+    ModulesRegisterComponent
   ],
   imports: [
     AppModule,
@@ -24,6 +27,7 @@ import { ModulesComponent } from './pages/modules/modules.component';
     StepsModule,
     InputTextModule,
     CommonModule,
+    TableModule
   ]
 })
 export class AdministrationModule { }

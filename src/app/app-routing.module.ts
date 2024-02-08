@@ -7,7 +7,8 @@ import { PmFormComponent } from './core/components/pm-form/pm-form.component';
 import { MenusComponent } from './pages/menus/menus.component';
 import { FormRegisterComponent } from './modules/administration/pages/form/form-register/form-register.component';
 import { FormRegisterPass1Component } from './modules/administration/pages/form/form-register-pass1/form-register-pass1.component';
-import { ModulesComponent } from './modules/administration/pages/modules/modules.component';
+import { ModulesComponent } from './modules/administration/pages/modules/modules-view/modules-view.component';
+import { ModulesRegisterComponent } from './modules/administration/pages/modules/modules-register/modules-register/modules-register.component';
 
 const routes: Routes = [
   {
@@ -31,12 +32,15 @@ const routes: Routes = [
     path: 'cadastrar-formulario',
     component: FormRegisterComponent,
     children: [
-      {path: 'passo1', component: FormRegisterPass1Component}
+      { path: 'passo1', component: FormRegisterPass1Component }
     ]
   },
   {
-    path: 'modulos',
-    component: ModulesComponent
+    path: 'administracao',
+    children: [
+      { path: 'modulos', component: ModulesComponent },
+      { path: 'modulos/registro', component: ModulesRegisterComponent }
+    ]
   }
 ];
 
