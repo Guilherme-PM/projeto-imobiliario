@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { SidebarModule } from 'primeng/sidebar';
+import { ModulesService } from 'src/app/modules/administration/services/modules/modules.service';
 import { MenusService } from 'src/app/services/menus.service';
 
 @Component({
@@ -18,7 +19,7 @@ export class MenuBarComponent implements OnInit {
   items: MenuItem[] = [];
 
   constructor(
-    private menusSvc: MenusService
+    private modulesSvc: ModulesService
   ) {}
 
   sidebarVisibleToogle(){
@@ -85,7 +86,7 @@ export class MenuBarComponent implements OnInit {
   }
 
   getAllMenus(){
-    this.menusSvc.getAllMenus()
+    this.modulesSvc.exibirModulosEMenus()
     .pipe().subscribe((data: any) => {
       this.menus = data;
     })

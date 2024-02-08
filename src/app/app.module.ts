@@ -42,6 +42,7 @@ import { PmCheckboxComponent } from './shared/components/pm-checkbox/pm-checkbox
 import { PmInputComponent } from './shared/components/pm-input/pm-input.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PmTableComponent } from './shared/components/pm-table/pm-table.component';
+import { PmButtonComponent } from './shared/components/pm-button/pm-button.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { PmTableComponent } from './shared/components/pm-table/pm-table.componen
     PmDropdownComponent,
     PmCheckboxComponent,
     PmTableComponent,
+    PmButtonComponent,
   ],
   imports: [
     CoreModule,
@@ -90,7 +92,8 @@ import { PmTableComponent } from './shared/components/pm-table/pm-table.componen
     PmInputComponent,
     PmDropdownComponent, 
     PmCheckboxComponent,
-    PmTableComponent
+    PmTableComponent,
+    PmButtonComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

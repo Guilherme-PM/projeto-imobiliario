@@ -17,4 +17,10 @@ export class ModulesService {
     }));
   }
 
+  exibirModulosEMenus(){
+    return this.http.get<Modules[]>(`${environment.apiUrl}/Modules/ExibirModulosEMenus/`).pipe(map(data => {
+      return data;
+    }));
+  }
+
 }
