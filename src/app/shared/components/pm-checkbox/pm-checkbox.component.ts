@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PmCheckboxConfig } from '../../models/components/pm-checkbox';
+ import { PmCheckboxConfig } from '../../models/components/pm-checkbox';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -8,7 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./pm-checkbox.component.scss']
 })
 export class PmCheckboxComponent implements OnInit{
-  @Input() pmCheckboxConfig!: PmCheckboxConfig;
+   @Input() pmCheckboxConfig!: PmCheckboxConfig;
 
   ngOnInit(): void {
     if(!this.pmCheckboxConfig.form){
@@ -23,6 +23,6 @@ export class PmCheckboxComponent implements OnInit{
         this.pmCheckboxConfig.form.get(controlName)?.updateValueAndValidity();
       }
     }
-  }
+  } 
 
 }

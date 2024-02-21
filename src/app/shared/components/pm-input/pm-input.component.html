@@ -1,17 +1,19 @@
-<div *ngIf="pmInputConfig.visible" [formGroup]="pmInputConfig.form!" style="margin-top: 20px; margin-bottom: 40px; margin-right: 20px;">
-    <div class="p-inputgroup" [ngStyle]="{ 'width': pmInputConfig.width }">
-        <span class="p-float-label">
-            <span #icon class="p-inputgroup-addon"><i class="{{ pmInputConfig.icon }}"></i></span>
-
-            <input formControlName="{{pmInputConfig.name}}" *ngIf="!pmInputConfig.passwordField && !pmInputConfig.textArea" style="border-radius: 0px 4px 4px 0px;" pInputText class="ui-inputtext ui-widget" [readOnly]="pmInputConfig.readOnly">
-
-            <input formControlName="{{pmInputConfig.name}}" *ngIf="pmInputConfig.passwordField" type="password" pPassword [readOnly]="pmInputConfig.readOnly">
-
-            <textarea formControlName="{{pmInputConfig.name}}" pInputTextArea *ngIf="!pmInputConfig.passwordField && pmInputConfig.textArea" [rows]="5"></textarea>
-
-            <label style="margin-left: 45px">{{ pmInputConfig.placeholder }}</label>
-            
-        </span>
+<div>
+    <div [formGroup]="pmInputConfig.form!" style="margin-top: 20px; margin-bottom: 40px; margin-right: 20px;">
+        <div class="p-inputgroup" [ngStyle]="{ 'width': pmInputConfig.width }">
+            <span class="p-float-label">
+                <span #icon class="p-inputgroup-addon"><i class="{{ pmInputConfig.icon }}"></i></span>
+    
+                <input [ngClass]="{ 'ng-dirty': this.pmInputConfig.form?.invalid}" formControlName="{{pmInputConfig.name}}" *ngIf="!pmInputConfig.passwordField && !pmInputConfig.textArea" style="border-radius: 0px 4px 4px 0px;" pInputText class="ui-inputtext ui-widget" [readOnly]="pmInputConfig.readOnly">
+    
+                <input formControlName="{{pmInputConfig.name}}" *ngIf="pmInputConfig.passwordField" type="password" pPassword [readOnly]="pmInputConfig.readOnly">
+    
+                <textarea formControlName="{{pmInputConfig.name}}" pInputTextArea *ngIf="!pmInputConfig.passwordField && pmInputConfig.textArea" [rows]="5"></textarea>
+    
+                <label style="margin-left: 45px">{{ pmInputConfig.placeholder }}</label>
+                
+            </span>
+        </div>
+        <small *ngIf="this.pmInputConfig.form?.invalid" style="color: #ff3d40">* Campo obrigatório</small>
     </div>
-    <small *ngIf="this.pmInputConfig.form?.invalid" style="color: #ff3d40">* Campo obrigatório</small>
 </div>

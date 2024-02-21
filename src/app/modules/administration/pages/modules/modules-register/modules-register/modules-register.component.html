@@ -1,3 +1,9 @@
 <div class="card">
     <h5 class="card-name">Módulos</h5>
+    <div style="display: flex;">
+        <app-pm-input [pmInputConfig]="descriptionConfig"></app-pm-input>
+        <app-pm-input [pmInputConfig]="iconConfig"></app-pm-input>
+    </div>
+    <app-pm-button (click)="salvar()" style="display: flex; justify-content: right; margin-bottom: 5px;" [icon]="'pi pi-plus'" [placeholder]="'Cadastrar'"></app-pm-button>
 </div>
+<p-toast></p-toast>

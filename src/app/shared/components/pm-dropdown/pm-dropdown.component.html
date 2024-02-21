@@ -1,10 +1,10 @@
-<form *ngIf="!pmDropdownConfig.visible" [formGroup]="pmDropdownConfig.form!" style="margin-top: 20px; margin-bottom: 40px; margin-right: 20px;">
+<form *ngIf="pmDropdownConfig.visible" [formGroup]="pmDropdownConfig.form!" style="margin-top: 20px; margin-bottom: 40px; margin-right: 20px;">
     <div class="p-inputgroup">
         <span class="p-float-label">
             <span #icon class="p-inputgroup-addon"><i class="{{ pmDropdownConfig.icon }}"></i></span>
             <p-dropdown [style]="{ 'width': pmDropdownConfig.width, 'border-radius': '0px 4px 4px 0px' }" styleClass="width: 550px !important" 
             formControlName="{{ pmDropdownConfig.name }}" [showClear]="pmDropdownConfig.showClear" [options]="pmDropdownConfig.options" 
-            [filter]="pmDropdownConfig.displayFilter" placeholder="Select a City" [optionValue]="pmDropdownConfig.value"
+            [filter]="pmDropdownConfig.displayFilter" [placeholder]="pmDropdownConfig.placeholder" [optionValue]="pmDropdownConfig.value"
             [readonly]="pmDropdownConfig.readOnly" [optionLabel]="pmDropdownConfig.label"></p-dropdown>
             <label style="margin-left: 45px" for="float-label">{{ pmDropdownConfig.placeholder }}</label>
         </span>

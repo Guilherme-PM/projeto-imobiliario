@@ -23,4 +23,10 @@ export class ModulesService {
     }));
   }
 
+  cadastrarModulo(dto: Modules){
+    return this.http.post<Modules>(`${environment.apiUrl}/Modules/CadastrarModulo/`, dto).pipe(map(data => {
+      return data;
+    }));
+  }
+
 }

@@ -1,4 +1,8 @@
 import { FormControl, FormGroup } from "@angular/forms";
+import { PmDropdownConfig } from "./pm-dropdown-config";
+import { PmInputConfig } from "./pm-input-config";
+import { PmCheckboxConfig } from "./pm-checkbox";
+import { PmTableConfig } from "./pm-table-config";
 
 export class PmConfig {
 
@@ -28,6 +32,13 @@ export class PmConfig {
   // Caso queira adicionar um icon no início do campo
   icon?: string;
 
+  type?: { [type: string]: any } = {
+/*     'dropdown': PmDropdownConfig,
+    'input': PmInputConfig,
+    'checkbox': PmCheckboxConfig,
+    'table': PmTableConfig */
+  };
+
   constructor({
     name,
     placeholder,
@@ -36,7 +47,8 @@ export class PmConfig {
     visible,
     steps,
     width,
-    icon
+    icon,
+    type
 
   } : {
 
@@ -48,6 +60,7 @@ export class PmConfig {
     steps?: number;
     width?: string;
     icon?: string;
+    type?: string;
   }) {
 
     this.name = name;

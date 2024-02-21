@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit, Type } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { PmInputConfig } from 'src/app/shared/models/components/pm-input-config';
-import { FormRegisterService, RegisterComponent } from '../../../services/form-register/form-register.service';
+import { FormService, RegisterComponent } from '../../../services/forms/form.service';
 import { PmDropdownConfig } from 'src/app/shared/models/components/pm-dropdown-config';
 import { PmCheckboxConfig } from 'src/app/shared/models/components/pm-checkbox';
 import { FormModel } from 'src/app/models/formModel';
@@ -11,7 +11,7 @@ import { FormModel } from 'src/app/models/formModel';
   selector: 'app-form-register',
   templateUrl: './form-register.component.html',
   styleUrls: ['./form-register.component.scss'],
-  providers: [FormRegisterService]
+  providers: [FormService]
 })
 
 export class FormRegisterComponent implements OnInit {
@@ -24,12 +24,12 @@ export class FormRegisterComponent implements OnInit {
 
   checkboxConfig: PmCheckboxConfig = { label: 'Teste', binary: true, name: 'campoCheckbox', mandatory: true } ;
   
-  constructor(private formRegisterService: FormRegisterService) {}
+  constructor(private formSvc: FormService) {}
   
   ngOnInit() {
     this.inputConfig.visible = true;
     
-    var forms = this.formRegisterService.getComponents();
+    var forms = this.formSvc.getComponents();
     
     const formModels: FormModel[] = forms.map(form => {
       const formModel = new FormModel();

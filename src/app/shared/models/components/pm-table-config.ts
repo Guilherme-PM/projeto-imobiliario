@@ -103,7 +103,8 @@ export class PmTableConfig extends PmConfig {
     // PmConfig
 
     id,
-    label
+    label,
+    type
   }: {
     checkbox?: boolean;
     filtroGlobal?: boolean;
@@ -134,6 +135,8 @@ export class PmTableConfig extends PmConfig {
 
     id?: string;
     label?: string;
+    type?: string;
+
   }) {
     super({
 
@@ -162,5 +165,6 @@ export class PmTableConfig extends PmConfig {
     this.alterarMinWidth = alterarMinWidth !== undefined ? alterarMinWidth : undefined;
     this.centralizarBotoesAcoes = centralizarBotoesAcoes !== undefined ? centralizarBotoesAcoes : true;
     this.habilitarBotoesEsquerda = habilitarBotoesEsquerda !== undefined ? habilitarBotoesEsquerda : false;
+    this.type = ['table'];
   }
 }

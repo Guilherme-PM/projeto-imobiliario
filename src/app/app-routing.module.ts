@@ -3,10 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { PmFormComponent } from './core/components/pm-form/pm-form.component';
+import { PmFormComponent } from './shared/components/pm-form/pm-form.component';
 import { MenusComponent } from './pages/menus/menus.component';
 import { FormRegisterComponent } from './modules/administration/pages/form/form-register/form-register.component';
-import { FormRegisterPass1Component } from './modules/administration/pages/form/form-register-pass1/form-register-pass1.component';
 import { ModulesComponent } from './modules/administration/pages/modules/modules-view/modules-view.component';
 import { ModulesRegisterComponent } from './modules/administration/pages/modules/modules-register/modules-register/modules-register.component';
 
@@ -31,9 +30,6 @@ const routes: Routes = [
   {
     path: 'cadastrar-formulario',
     component: FormRegisterComponent,
-    children: [
-      { path: 'passo1', component: FormRegisterPass1Component }
-    ]
   },
   {
     path: 'administracao',

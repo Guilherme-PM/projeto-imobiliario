@@ -25,6 +25,7 @@ import { TagModule } from 'primeng/tag';
 import { RatingModule } from 'primeng/rating';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { ToastModule } from 'primeng/toast';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
 
 // TELAS
 import { HomeComponent } from './pages/home/home.component';
@@ -43,6 +44,7 @@ import { PmInputComponent } from './shared/components/pm-input/pm-input.componen
 import { HttpClientModule } from '@angular/common/http';
 import { PmTableComponent } from './shared/components/pm-table/pm-table.component';
 import { PmButtonComponent } from './shared/components/pm-button/pm-button.component';
+import { PmFormComponent } from './shared/components/pm-form/pm-form.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,7 @@ import { PmButtonComponent } from './shared/components/pm-button/pm-button.compo
     PmCheckboxComponent,
     PmTableComponent,
     PmButtonComponent,
+    PmFormComponent
   ],
   imports: [
     CoreModule,
@@ -86,14 +89,16 @@ import { PmButtonComponent } from './shared/components/pm-button/pm-button.compo
     TagModule,
     RatingModule,
     MultiSelectModule,
-    ToastModule
+    ToastModule,
+    BreadcrumbModule
   ],
   exports: [
     PmInputComponent,
     PmDropdownComponent, 
     PmCheckboxComponent,
     PmTableComponent,
-    PmButtonComponent
+    PmButtonComponent,
+    PmFormComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

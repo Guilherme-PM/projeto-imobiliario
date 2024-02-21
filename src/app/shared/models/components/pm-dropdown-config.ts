@@ -53,5 +53,6 @@ export class PmDropdownConfig extends PmConfig{
         this.showClear || true;
         this.label || null;
         this.value || null;
+        this.type = ['dropdown'];
     }
 }

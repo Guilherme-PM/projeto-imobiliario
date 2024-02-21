@@ -1,0 +1,32 @@
+:root {
+    --surface-card: #2a323d;
+}
+  
+.card {
+  background: var(--surface-card);
+  border: 1px solid var(--surface-border);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--card-shadow);
+  border-radius: 6px;
+  height: 87vh;
+}
+
+.card-name {
+  font-size: 30px;
+  margin: 0;
+  margin-bottom: 45px;
+}
+
+.ng-dirty {
+  border-color: #f7353d;
+}
+
+.p-breadcrumb {
+  margin-bottom: 20px;
+}
+
+.buttons-primary-form{
+  display: flex;
+  justify-content: flex-end;
+}

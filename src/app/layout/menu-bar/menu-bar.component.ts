@@ -22,6 +22,10 @@ export class MenuBarComponent implements OnInit {
     private modulesSvc: ModulesService
   ) {}
 
+  ngOnInit() {
+    this.getAllMenus();
+  }
+  
   sidebarVisibleToogle(){
     this.sidebarVisible = true;
   }
@@ -36,54 +40,6 @@ export class MenuBarComponent implements OnInit {
     this.toggleSidebar.emit(this.sidebarVisible);
   }
 
-  ngOnInit() {
-    this.getAllMenus();
-
-    this.items = [
-      {
-        label: 'Página Inicial',
-        icon: 'pi pi-home',
-        routerLink: '/dashboard'
-      },
-      {
-        label: 'Administração',
-        icon: 'pi pi-shopping-cart',
-        items: [
-          {
-            label: 'Módulos',
-            icon: 'pi pi-briefcase',
-            routerLink: 'administracao/modulos'
-          },
-          {
-            label: 'Formulários',
-            icon: 'pi pi-desktop',
-            routerLink: '/cadastrar-formulario'
-          },
-          {
-            label: 'Permissões',
-            icon: 'pi pi-user',
-            routerLink: ''
-          },
-          {
-            label: 'Menus',
-            icon: 'pi pi-list',
-            routerLink: '/menu'
-          }
-        ]
-      },
-      {
-        label: 'Financeiro',
-        icon: 'pi pi-money-bill',
-        items: [
-          {
-            label: 'Orçamento',
-            icon: 'pi pi-wallet',
-            routerLink: ''
-          }
-        ]
-      }
-    ];
-  }
 
   getAllMenus(){
     this.modulesSvc.exibirModulosEMenus()
