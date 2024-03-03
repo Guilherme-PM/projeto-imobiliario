@@ -1,9 +1,9 @@
-<div class="card">
+<!-- <div class="card">
   <h5 class="card-name">Formulário</h5>
   <p-steps [style]="{ 'margin-bottom': '30px' }" [model]="items" [(activeIndex)]="selectedStep" [readonly]="false" styleClass="custom-steps"></p-steps>
-  <!-- <app-pm-input></app-pm-input> -->
   <app-pm-input [pmInputConfig]="inputConfig"></app-pm-input>
   <app-pm-dropdown [pmDropdownConfig]="dropdownConfig"></app-pm-dropdown>
   <app-pm-checkbox [pmCheckboxConfig]="checkboxConfig"></app-pm-checkbox>
   <button (click)="salvar()">Salvar</button>
-</div>
+</div> -->
+<app-form *ngIf="pmFormConfig" [pmFormConfig]="pmFormConfig"></app-form>

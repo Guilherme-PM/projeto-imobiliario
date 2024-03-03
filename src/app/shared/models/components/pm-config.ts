@@ -27,10 +27,12 @@ export class PmConfig {
   // Define o tamanho do componente
   width?: string;
 
-  steps?: number;
+  step?: number;
 
   // Caso queira adicionar um icon no início do campo
   icon?: string;
+
+  ngModel?: any;
 
   type?: { [type: string]: any } = {
 /*     'dropdown': PmDropdownConfig,
@@ -45,10 +47,11 @@ export class PmConfig {
     mandatory,
     readOnly,
     visible,
-    steps,
+    step,
     width,
     icon,
-    type
+    type,
+    ngModel
 
   } : {
 
@@ -57,10 +60,11 @@ export class PmConfig {
     mandatory?: boolean;
     readOnly?: boolean;
     visible?: boolean;
-    steps?: number;
+    step?: number;
     width?: string;
     icon?: string;
     type?: string;
+    ngModel?: any;
   }) {
 
     this.name = name;
@@ -68,9 +72,10 @@ export class PmConfig {
     this.mandatory = mandatory;
     this.readOnly = readOnly || false;
     this.visible = visible || true;
-    this.steps = steps || undefined;
+    this.step = step || undefined;
     this.width = width || undefined;
     this.icon = icon || undefined;
+    this.ngModel = ngModel ?? undefined;
   }
 
   updateValue?(value: any){

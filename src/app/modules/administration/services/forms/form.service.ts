@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, Type } from '@angular/core';
 import { map } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Forms } from '../../models/forms/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,13 @@ export class FormService {
   constructor(private http: HttpClient) { }
 
   findFormByName(name: string){
-    return this.http.get<object>(`${environment.apiUrl}/Forms/GetFormByName/${name}`).pipe(map(data => {
+    return this.http.get<Forms>(`${environment.apiUrl}/Forms/GetFormByName/${name}`).pipe(map(data => {
+      return data;
+    }));
+  }
+
+  findFormById(id: string){
+    return this.http.get<Forms>(`${environment.apiUrl}/Forms/GetFormById/${id}`).pipe(map(data => {
       return data;
     }));
   }

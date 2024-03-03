@@ -62,7 +62,7 @@ import { PmFormComponent } from './shared/components/pm-form/pm-form.component';
     PmCheckboxComponent,
     PmTableComponent,
     PmButtonComponent,
-    PmFormComponent
+    PmFormComponent,
   ],
   imports: [
     CoreModule,

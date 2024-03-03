@@ -18,7 +18,9 @@ export class PmInputConfig extends PmConfig {
     placeholder,
     mandatory,
     readOnly,
-    width
+    width,
+    step,
+    ngModel
     
   } : {
     passwordField?: boolean;
@@ -28,18 +30,25 @@ export class PmInputConfig extends PmConfig {
     name?: string;
     placeholder?: string;
     mandatory?: boolean;
-    readOnly: boolean;
-    width: string;
+    readOnly?: boolean;
+    width?: string;
+    step?: number;
+    ngModel?: any;
   }) {
     super({
       name,
       placeholder,
       mandatory,
       readOnly,
-      width
-
+      width,
+      step,
+      ngModel
     });
     this.passwordField = passwordField ?? false;
     this.textArea = textArea ?? false;
+    this.step = step;
+    this.type = ['input'];
+    this.width = width ?? '310px';
+    this.ngModel = ngModel;
   }
 }

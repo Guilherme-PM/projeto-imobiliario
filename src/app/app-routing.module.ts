@@ -8,6 +8,7 @@ import { MenusComponent } from './pages/menus/menus.component';
 import { FormRegisterComponent } from './modules/administration/pages/form/form-register/form-register.component';
 import { ModulesComponent } from './modules/administration/pages/modules/modules-view/modules-view.component';
 import { ModulesRegisterComponent } from './modules/administration/pages/modules/modules-register/modules-register/modules-register.component';
+import { FormViewComponent } from './modules/administration/pages/form/form-view/form-view.component';
 
 const routes: Routes = [
   {
@@ -28,12 +29,10 @@ const routes: Routes = [
     component: MenusComponent
   },
   {
-    path: 'cadastrar-formulario',
-    component: FormRegisterComponent,
-  },
-  {
     path: 'administracao',
     children: [
+      { path: 'formularios', component: FormViewComponent },
+      { path: 'formularios/cadastro/:id', component: FormRegisterComponent },
       { path: 'modulos', component: ModulesComponent },
       { path: 'modulos/registro', component: ModulesRegisterComponent }
     ]

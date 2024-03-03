@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormRegisterComponent } from './pages/form/form-register/form-register.component';
-import { FormListComponent } from './pages/form/form-list/form-list.component';
+import { FormViewComponent } from './pages/form/form-view/form-view.component';
 import { StepsModule } from 'primeng/steps';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { AppModule } from 'src/app/app.module';
@@ -14,7 +14,7 @@ import { ToastModule } from 'primeng/toast';
 @NgModule({
   declarations: [
     FormRegisterComponent,
-    FormListComponent,
+    FormViewComponent,
     ModulesComponent,
     ModulesRegisterComponent
   ],

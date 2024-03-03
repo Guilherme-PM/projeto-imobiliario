@@ -29,9 +29,9 @@ export class ModulesComponent implements OnInit {
     private formSvc: FormService ) { }
 
   ngOnInit(): void {
-    this.formSvc.findFormByName('modulos')
+    this.formSvc.findFormByName('modulo')
       .pipe().subscribe((data: any) => {
-        this.pmFormConfig = JSON.parse(data.clobForm);
+        this.pmFormConfig = JSON.parse(data.formConfig);
         this.carregarDados();
       })
   }

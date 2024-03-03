@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { PmFormConfig } from '../../models/components/pm-form-config/pm-form-config';
 import { PmTableConfig } from '../../models/components/pm-table-config';
 import { PmDropdownConfig } from '../../models/components/pm-dropdown-config';
+import { PmInputConfig } from '../../models/components/pm-input-config';
 
 @Component({
   selector: 'app-form',
@@ -10,7 +11,7 @@ import { PmDropdownConfig } from '../../models/components/pm-dropdown-config';
 })
 export class PmFormComponent implements OnInit {
   @Input() pmFormConfig!: PmFormConfig
-  
+
   ngOnInit(): void {
     console.log(this.pmFormConfig);
   }
@@ -21,5 +22,13 @@ export class PmFormComponent implements OnInit {
 
   isPmDropdownConfig(obj: any): obj is PmDropdownConfig {
     return obj && obj.hasOwnProperty('type');
+  }
+
+  isPmInputConfig(obj: any): obj is PmInputConfig {
+    return obj && obj.hasOwnProperty('type');
+  }
+
+  getFieldsForCurrentStep(): any[] {
+    return this.pmFormConfig.fields.filter((field: any) => field.step == this.pmFormConfig.currentStep);
   }
 }

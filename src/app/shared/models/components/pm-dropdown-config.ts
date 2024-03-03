@@ -26,7 +26,8 @@ export class PmDropdownConfig extends PmConfig{
         placeholder,
         mandatory,
         readOnly,
-        width
+        width,
+        step
     } : {
         displayFilter?: boolean;
         options?: any;
@@ -39,13 +40,15 @@ export class PmDropdownConfig extends PmConfig{
         mandatory?: boolean,
         readOnly?: boolean,
         width?: string
+        step?: number;
     }) {
         super({
             name,
             placeholder,
             mandatory,
             readOnly,
-            width
+            width,
+            step
         });
 
         this.displayFilter || true;
@@ -53,6 +56,8 @@ export class PmDropdownConfig extends PmConfig{
         this.showClear || true;
         this.label || null;
         this.value || null;
+        this.width = width ?? '260px';
         this.type = ['dropdown'];
+        this.step = step;
     }
 }

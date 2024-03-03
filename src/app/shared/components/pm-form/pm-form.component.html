@@ -6,25 +6,35 @@
             <app-pm-button [icon]="button.icon" [placeholder]="button.placeholder"></app-pm-button>
         </div>
     </div>
+
     <h5 class="card-name">{{ pmFormConfig.title }}</h5>
 
-    <div *ngFor="let field of pmFormConfig.fields">
-        <div *ngIf="field.type">
-            <ng-container [ngSwitch]="field.type[0]">
-    
-                <div *ngSwitchCase="'table'">
-                    <ng-container *ngIf="isPmTableConfig(field)">
-                        <app-pm-table [pmTableConfig]="field"></app-pm-table>
-                    </ng-container>
-                </div>
-                <div *ngSwitchCase="'dropdown'">
-                    <ng-container *ngIf="isPmDropdownConfig(field)">
-                        <app-pm-dropdown [pmDropdownConfig]="field"></app-pm-dropdown>
-                    </ng-container>
-                </div>
-                
-                <span *ngSwitchDefault>Tipo {{ field.type }} não possui componente implementado.</span>
-            </ng-container>
+    <p-steps *ngIf="pmFormConfig.steps != undefined && pmFormConfig.currentStep != undefined" [model]="pmFormConfig.steps" [readonly]="false" [(activeIndex)]="pmFormConfig.currentStep"></p-steps>
+
+    <div class="flex">
+        <div *ngFor="let field of getFieldsForCurrentStep()" [ngClass]="{'table': field.type[0] === 'table'}">
+            <div *ngIf="field.type">
+                <ng-container [ngSwitch]="field.type[0]">
+        
+                        <div *ngSwitchCase="'table'">
+                            <ng-container *ngIf="isPmTableConfig(field)">
+                                <app-pm-table [pmTableConfig]="field"></app-pm-table>
+                            </ng-container>
+                        </div>
+                        <div *ngSwitchCase="'dropdown'">
+                            <ng-container *ngIf="isPmDropdownConfig(field)">
+                                <app-pm-dropdown [pmDropdownConfig]="field"></app-pm-dropdown>
+                            </ng-container>
+                        </div>
+                        <div *ngSwitchCase="'input'">
+                            <ng-container *ngIf="isPmInputConfig(field)">
+                                <app-pm-input [pmInputConfig]="field"></app-pm-input>
+                            </ng-container>
+                        </div>
+                                        
+                    <span *ngSwitchDefault>Tipo {{ '[ ' + field.type + ' ]' }} não possui componente implementado.</span>
+                </ng-container>
+            </div>
         </div>
     </div>
 </div>
