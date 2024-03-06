@@ -31,8 +31,13 @@
                                 <app-pm-input [pmInputConfig]="field"></app-pm-input>
                             </ng-container>
                         </div>
+                        <div *ngSwitchCase="'button'">
+                            <ng-container *ngIf="isPmButtonConfig(field)">
+                                <app-pm-button [pmButtonConfig]="field"></app-pm-button>
+                            </ng-container>
+                        </div>
                                         
-                    <span *ngSwitchDefault>Tipo {{ '[ ' + field.type + ' ]' }} não possui componente implementado.</span>
+                    <span *ngSwitchDefault>Tipo {{ ' [ ' + field.type + ' ] ' }} não possui componente implementado.</span>
                 </ng-container>
             </div>
         </div>

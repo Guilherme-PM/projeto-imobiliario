@@ -23,6 +23,12 @@ export class FormService {
       return data;
     }));
   }
+
+  updateForm(form: Forms){
+    return this.http.put<Forms>(`${environment.apiUrl}/Forms/UpdateForm/`, form).pipe(map(data => {
+      return data;
+    }));
+  }
   
   registerComponent(component: Type<any>) {    
     FormService.componentList.push(component);

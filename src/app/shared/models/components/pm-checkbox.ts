@@ -8,35 +8,35 @@ export class PmCheckboxConfig extends PmConfig{
     // Propriedade que deixa o formulário receber "True, False, Null"
     triState?: boolean;
 
-    label?: string;
 
     constructor({
         binary,
         triState,
-        label,
-
+        
         name,
         placeholder,
         mandatory,
         readOnly,
-        width
+        width,
+        label
     } : {
         binary?: boolean;
         triState?: any;
-        label?: string;
-
+        
         name?: string,
         placeholder?: string,
         mandatory?: boolean,
         readOnly?: boolean,
         width?: string
+        label?: string;
     }) {
         super({
             name,
             placeholder,
             mandatory,
             readOnly,
-            width
+            width,
+            label
         });
 
         this.binary || (this.triState ? false : true);

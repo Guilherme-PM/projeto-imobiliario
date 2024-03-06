@@ -9,6 +9,7 @@ import { PmFormConfig } from 'src/app/shared/models/components/pm-form-config/pm
 import { PmBreadcrumbConfig } from 'src/app/shared/models/components/pm-breadcrumb-config/pm-breadcrumb-config';
 import { PmTableConfig } from 'src/app/shared/models/components/pm-table-config';
 import { ActivatedRoute } from '@angular/router';
+import { PmButtonConfig } from 'src/app/shared/models/components/pm-button-config/pm-button-config';
 
 @RegisterComponent()
 @Component({
@@ -30,6 +31,7 @@ export class FormRegisterComponent implements OnInit {
 
   pmFormConfig!: PmFormConfig;
   data: any;
+  data2: any;
 
   constructor(private formSvc: FormService,
     private route: ActivatedRoute) {}
@@ -56,6 +58,7 @@ export class FormRegisterComponent implements OnInit {
       this.formSvc.findFormById(id)
       .pipe().subscribe((data: any) => {
         this.data = JSON.parse(data.formConfig);
+        this.data2 = data;
 
         const inputForm = this.pmFormConfig.fields.find(field => Array.isArray(field.type) && field.type.includes('input'));
         if(inputForm){
@@ -72,7 +75,8 @@ export class FormRegisterComponent implements OnInit {
       title: 'Formulários',
       steps: [
         { label: 'Cadastro',  },
-        { label: 'Cadastro 2' }
+        { label: 'Cadastro 2' },
+        { label: 'Confirmação' }
       ],
       currentStep: 0,
       breadcrumb: new PmBreadcrumbConfig({
@@ -80,16 +84,34 @@ export class FormRegisterComponent implements OnInit {
         items: [{ label: 'Administração' }, { label: 'Formulários' }]
       }),
       fields: [
-        new PmDropdownConfig({step: 0, placeholder: 'Selecione Algo', width: '260px', name: 'teste',}),
-        new PmInputConfig({ step: 0, name: 'nomeFormulario',  placeholder: 'Nome do formulário'}),
-        new PmDropdownConfig({step: 1, name: 'teste2'})
+        new PmDropdownConfig({ step: 0, placeholder: 'Selecione Algo', width: '260px', name: 'teste' }),
+        new PmInputConfig({ step: 0, name: 'title',  placeholder: 'Nome do formulário' }),
+        new PmDropdownConfig({ step: 1, name: 'teste2' }),
+        new PmButtonConfig({ step: 2, icon: 'pi pi-home', placeholder: 'Salvar', onClick: (item) => { 
+          this.saveForm();
+          
+         } })
       ],
     });
   }
 
-  salvar(){
-    if(!this.inputConfig.form?.valid)
-      return;
+  saveForm(){
+    // Encontrar o campo de entrada no formulário
+    const inputForm = this.pmFormConfig.fields.find(field => Array.isArray(field.type) && field.type.includes('input')) as PmInputConfig;
+
+    // Verificar se o campo de entrada existe e se o formulário está definido
+    if (inputForm && inputForm.form) {
+        // Atualizar o título do seu modelo de dados
+        this.data.title = inputForm.form.value.title;
+        this.data2.formConfig = JSON.stringify(this.data);
+
+        // Salvar as alterações no serviço
+        this.formSvc.updateForm(this.data2)
+            .subscribe((data: any) => {
+                // Atualizar os dados do formulário com os dados salvos
+                this.data = JSON.parse(data.formConfig);
+            });
+    }
   }
 
   dadosPrincipais(){

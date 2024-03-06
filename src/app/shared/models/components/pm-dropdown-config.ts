@@ -11,7 +11,6 @@ export class PmDropdownConfig extends PmConfig{
     // Propriedade para liberar o botão de limpar
     showClear?: boolean;
 
-    label?: string;
 
     value?: string;
 
@@ -19,28 +18,28 @@ export class PmDropdownConfig extends PmConfig{
         displayFilter,
         options,
         showClear,
-        label,
         value,
-
+        
         name,
         placeholder,
         mandatory,
         readOnly,
         width,
-        step
+        step,
+        label
     } : {
         displayFilter?: boolean;
         options?: any;
         showClear?: boolean;
-        label?: string;
         value?: string;
-
+        
         name?: string,
         placeholder?: string,
         mandatory?: boolean,
         readOnly?: boolean,
         width?: string
         step?: number;
+        label?: string;
     }) {
         super({
             name,
@@ -48,7 +47,8 @@ export class PmDropdownConfig extends PmConfig{
             mandatory,
             readOnly,
             width,
-            step
+            step,
+            label
         });
 
         this.displayFilter || true;

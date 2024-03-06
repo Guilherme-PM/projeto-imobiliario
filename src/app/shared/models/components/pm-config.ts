@@ -8,6 +8,8 @@ export class PmConfig {
 
   name?: string;
 
+  label?: string;
+
   // Define o placeholder do componente utilizado
   placeholder?: string;
 
@@ -43,6 +45,7 @@ export class PmConfig {
 
   constructor({
     name,
+    label,
     placeholder,
     mandatory,
     readOnly,
@@ -56,6 +59,7 @@ export class PmConfig {
   } : {
 
     name?: string;
+    label?: string;
     placeholder?: string;
     mandatory?: boolean;
     readOnly?: boolean;
@@ -68,6 +72,7 @@ export class PmConfig {
   }) {
 
     this.name = name;
+    this.label = label;
     this.placeholder = placeholder || 'Digite';
     this.mandatory = mandatory;
     this.readOnly = readOnly || false;

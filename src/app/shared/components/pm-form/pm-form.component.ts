@@ -3,6 +3,7 @@ import { PmFormConfig } from '../../models/components/pm-form-config/pm-form-con
 import { PmTableConfig } from '../../models/components/pm-table-config';
 import { PmDropdownConfig } from '../../models/components/pm-dropdown-config';
 import { PmInputConfig } from '../../models/components/pm-input-config';
+import { PmButtonConfig } from '../../models/components/pm-button-config/pm-button-config';
 
 @Component({
   selector: 'app-form',
@@ -25,6 +26,10 @@ export class PmFormComponent implements OnInit {
   }
 
   isPmInputConfig(obj: any): obj is PmInputConfig {
+    return obj && obj.hasOwnProperty('type');
+  }
+
+  isPmButtonConfig(obj: any): obj is PmButtonConfig {
     return obj && obj.hasOwnProperty('type');
   }
 
